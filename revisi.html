@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran Bible Camp Remaja</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+      width: 420px;
+      max-width: 95%;
+      box-sizing: border-box;
+      overflow-y: auto;
+      max-height: 95vh;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeSlideDown 1s ease-in-out forwards;
+    }
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    fieldset {
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      padding: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInFieldset 0.8s ease forwards;
+    }
+    fieldset:nth-of-type(1) { animation-delay: 0.5s; }
+    fieldset:nth-of-type(2) { animation-delay: 0.9s; }
+    fieldset:nth-of-type(3) { animation-delay: 1.3s; }
+    @keyframes fadeInFieldset {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    legend {
+      font-weight: bold;
+      color: #3498db;
+      padding: 0 8px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #34495e;
+      animation: fadeInLeft 1s ease-in-out;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #bdc3c7;
+      border-radius: 6px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #3498db;
+    }
+    .form-inline {
+      display: flex;
+      gap: 15px;
+      margin-top: 6px;
+    }
+    .form-inline label {
+      font-weight: normal;
+      animation: fadeInRight 1s ease-in-out;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: #3498db;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-submit:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(52,152,219,0.7);
+    }
+
+    /* Animasi tambahan */
+    @keyframes fadeInLeft {
+      from {opacity: 0; transform: translateX(-20px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+    @keyframes fadeInRight {
+      from {opacity: 0; transform: translateX(20px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+    @keyframes pulse {
+      0% {box-shadow: 0 0 0 0 rgba(52,152,219,0.6);}
+      70% {box-shadow: 0 0 0 10px rgba(52,152,219,0);}
+      100% {box-shadow: 0 0 0 0 rgba(52,152,219,0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Pendaftaran Bible Camp Naposobulung HKBP Gedung Johor</h2>
+    <form onsubmit="return submitForm()">
+
+      <!-- Bagian Akun -->
+      <fieldset>
+        <legend>Akun</legend>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" placeholder="Masukkan username" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Minimal 8 karakter" required>
+        </div>
+        <div class="form-group">
+          <label>Konfirmasi Password</label>
+          <input type="password" placeholder="Ulangi password" required>
+        </div>
+      </fieldset>
+
+      <!-- Bagian Biodata -->
+      <fieldset>
+        <legend>Biodata</legend>
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Masukkan nama lengkap" required>
+        </div>
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <input type="date" required>
+        </div>
+        <div class="form-group">
+          <label>Jenis Kelamin</label>
+          <select required>
+            <option value="">-- Pilih --</option>
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>No. HP / WhatsApp</label>
+          <input type="number" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="form-group">
+          <label>Alamat</label>
+          <textarea rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Bagian Tambahan -->
+      <fieldset>
+        <legend>Informasi Tambahan</legend>
+        <div class="form-group">
+          <label>First Time?</label>
+          <div class="form-inline">
+            <label><input type="radio" name="baptisan" value="ya" required> Ya</label>
+            <label><input type="radio" name="baptisan" value="tidak"> Tidak</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Bakat / Minat</label>
+          <div class="form-inline">
+            <label><input type="checkbox" name="bakat" value="musik"> Musik</label>
+            <label><input type="checkbox" name="bakat" value="olahraga"> Olahraga</label>
+            <label><input type="checkbox" name="bakat" value="multimedia"> Multimedia</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn-submit">Daftar Sekarang</button>
+    </form>
+  </div>
+
+  <script>
+    function submitForm() {
+      alert("Terima kasih! Pendaftaran Bible Camp Anda sudah tercatat.");
+      return false; // biar tidak reload halaman
+    }
+  </script>
+</body>
+</html>
